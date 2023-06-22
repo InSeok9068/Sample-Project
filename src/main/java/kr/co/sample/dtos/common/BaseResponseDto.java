@@ -1,4 +1,4 @@
-package kr.co.sample.common;
+package kr.co.sample.dtos.common;
 
 import lombok.*;
 import org.apache.commons.lang3.StringUtils;
@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseResponse {
+public class BaseResponseDto {
 
     @Builder.Default
     int code = 0;
@@ -16,12 +16,12 @@ public class BaseResponse {
     @Builder.Default
     String message = StringUtils.EMPTY;
 
-    public static BaseResponse ofSuccess() {
-        return BaseResponse.builder().build();
+    public static BaseResponseDto ofSuccess() {
+        return BaseResponseDto.builder().build();
     }
 
-    public static BaseResponse ofError() {
-        return BaseResponse.builder()
+    public static BaseResponseDto ofError() {
+        return BaseResponseDto.builder()
                 .code(9999)
                 .message("실패")
                 .build();
