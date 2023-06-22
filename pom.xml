@@ -15,8 +15,10 @@
     <description>sample-project</description>
     <properties>
         <java.version>17</java.version>
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.1-jre</guava.version>
         <openapi.version>2.1.0</openapi.version>
+        <resilience4j.version>2.0.2</resilience4j.version>
+        <commons-io.version>2.13.0</commons-io.version>
     </properties>
     <dependencies>
         <dependency>
@@ -99,10 +101,28 @@
             <version>${openapi.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot2</artifactId>
+            <version>${resilience4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-circuitbreaker</artifactId>
+            <version>${resilience4j.version}</version>
+        </dependency>
+
         <!-- Util Library -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
 
         <dependency>

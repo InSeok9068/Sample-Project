@@ -1,11 +1,6 @@
-Database Framework : JPA + QueryDSL
-
-Caching : Redis
-
-Message Queue : Redis Queue
-
-Lock : Redis
-
-Circuit Breaker : Resilience4j
-
-API Doc : Open API
+- Database Framework : JPA + QueryDSL
+- Caching : Redis
+- Message Queue : Redis Queue
+- Lock : Redis
+- Circuit Breaker : Resilience4j
+- API Doc : Open API (http://localhost:8080/swagger-ui.html)
