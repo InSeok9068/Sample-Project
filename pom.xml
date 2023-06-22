@@ -19,6 +19,7 @@
         <openapi.version>2.1.0</openapi.version>
         <resilience4j.version>2.0.2</resilience4j.version>
         <commons-io.version>2.13.0</commons-io.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
     </properties>
     <dependencies>
         <dependency>
@@ -123,6 +124,12 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
         </dependency>
 
         <dependency>
