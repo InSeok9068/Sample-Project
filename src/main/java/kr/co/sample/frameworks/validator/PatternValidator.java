@@ -1,8 +1,8 @@
-package kr.co.sample.validators;
+package kr.co.sample.frameworks.validator;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import kr.co.sample.validators.PatternValid.PATTERN_TYPE;
+import kr.co.sample.frameworks.validator.PatternValid.PATTERN_TYPE;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

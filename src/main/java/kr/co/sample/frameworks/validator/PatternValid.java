@@ -1,4 +1,4 @@
-package kr.co.sample.validators;
+package kr.co.sample.frameworks.validator;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
