@@ -28,6 +28,13 @@ public class ResultResponseDto {
                 .build();
     }
 
+    public static ResultResponseDto ofError(String message) {
+        return ResultResponseDto.builder()
+                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .message(message)
+                .build();
+    }
+
     public static ResultResponseDto ofError(String code, String message) {
         return ResultResponseDto.builder()
                 .code(code)

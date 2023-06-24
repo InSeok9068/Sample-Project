@@ -62,3 +62,13 @@ springdoc:
     path: /
     tags-sorter: alpha
     operations-sorter: alpha
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        minimum-number-of-calls: 5
+        sliding-window-size: 3
+    instances:
+      testCircuitBreaker:
+        base-config: default

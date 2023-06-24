@@ -38,6 +38,13 @@ public class ResultGenericResponseDto<T> {
                 .build();
     }
 
+    public static <T> ResultGenericResponseDto<T> ofError(String message) {
+        return ResultGenericResponseDto.<T>builder()
+                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .message(message)
+                .build();
+    }
+
     public static <T> ResultGenericResponseDto<T> ofError(String code, String message) {
         return ResultGenericResponseDto.<T>builder()
                 .code(code)
