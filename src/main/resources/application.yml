@@ -60,3 +60,5 @@ logging:
 springdoc:
   swagger-ui:
     path: /
+    tags-sorter: alpha
+    operations-sorter: alpha
