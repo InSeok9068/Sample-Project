@@ -17,4 +17,9 @@ public class TempController {
     public ResultResponseDto getTemp() {
         return ResultResponseDto.ofSuccess();
     }
+
+    @GetMapping(value = "/error")
+    public ResultResponseDto throwException() throws Exception {
+        throw new Exception("의도적인 에러 발생");
+    }
 }
