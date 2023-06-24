@@ -1,4 +1,7 @@
 package kr.co.sample.services;
 
-public interface TempService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class TempService {
 }
