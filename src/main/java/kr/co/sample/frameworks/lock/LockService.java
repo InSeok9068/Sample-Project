@@ -31,7 +31,7 @@ public class LockService {
         try {
             locked = lock.tryLock(waitTime, timeUnit);
         } catch (InterruptedException e) {
-            log.error("Lcok 생성 실패 : {}", ExceptionUtils.getStackTrace(e));
+            log.error("Lock 생성 실패 : {}", ExceptionUtils.getStackTrace(e));
             throw new RuntimeException(e);
         }
 
