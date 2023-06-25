@@ -8,5 +8,5 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TempDto {
-    private int id;
+    private Long id;
 }
