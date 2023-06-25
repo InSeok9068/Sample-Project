@@ -13,7 +13,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "temp_entity")
+@Table(name = "temp")
 public class TempEntity extends BaseTimeEntity {
     @Id
     @GeneratedValue
