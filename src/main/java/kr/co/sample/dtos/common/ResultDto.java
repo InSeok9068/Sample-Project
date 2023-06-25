@@ -43,10 +43,10 @@ public class ResultDto {
     }
 
     public boolean checkSuccess() {
-        return ResultConstant.SUCCESS_MESSAGE.equals(code);
+        return ResultConstant.SUCCESS_CODE.equals(code);
     }
 
     public boolean checkError() {
-        return !ResultConstant.SUCCESS_MESSAGE.equals(code);
+        return !ResultConstant.SUCCESS_CODE.equals(code);
     }
 }
