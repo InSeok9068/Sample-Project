@@ -49,8 +49,8 @@ management:
 
 logging:
   file:
-    path: log
-    name: log/sample-project.log
+    path: /log
+    name: /log/sample-project.log
   logback:
     rollingpolicy:
       max-history: 3
