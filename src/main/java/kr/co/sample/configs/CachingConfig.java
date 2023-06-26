@@ -29,7 +29,7 @@ public class CachingConfig {
     }
 
     @Bean
-    public CacheManager guavaCacheManager() {
+    public CacheManager caffeineCacheManager() {
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
         caffeineCacheManager.setCaffeine(Caffeine.newBuilder());
         return caffeineCacheManager;
