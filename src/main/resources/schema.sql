@@ -1,5 +1,5 @@
 -- https://github.com/spring-projects/spring-integration/tree/v5.3.0.RELEASE/spring-integration-jdbc/src/main/resources/org/springframework/integration/jdbc
--- JDBC Lock
+-- JDBC Lock Schema Drop and Craete
 
 DROP INDEX INT_MESSAGE_IX1 IF EXISTS;
 DROP INDEX INT_CHANNEL_MSG_DATE_IDX IF EXISTS;
