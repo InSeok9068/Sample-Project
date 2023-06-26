@@ -1,9 +1,6 @@
 package kr.co.sample.entitys;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import kr.co.sample.entitys.common.BaseTimeEntity;
 import lombok.*;
 
@@ -16,6 +13,6 @@ import lombok.*;
 @Table(name = "temp")
 public class TempEntity extends BaseTimeEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 }
