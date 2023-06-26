@@ -18,13 +18,13 @@ public class TempController {
 
     @Operation(summary = "요청")
     @GetMapping(value = StringUtils.EMPTY)
-    public ResultDto getTemp() {
+    ResultDto getTemp() {
         return ResultDto.ofSuccess();
     }
 
     @Operation(summary = "에러 발생")
     @GetMapping(value = "/error")
-    public ResultDto throwException() throws Exception {
+    ResultDto throwException() throws Exception {
         throw new Exception("의도적인 에러 발생");
     }
 }

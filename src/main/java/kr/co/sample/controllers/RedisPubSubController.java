@@ -20,7 +20,7 @@ public class RedisPubSubController {
 
     @Operation(summary = "메시지 발행")
     @PostMapping(value = "/publish")
-    public ResultDto publish() {
+    ResultDto publish() {
         redisPubService.publish("메시지 발행");
         return ResultDto.ofSuccess();
     }

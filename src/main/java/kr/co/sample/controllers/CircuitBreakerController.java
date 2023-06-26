@@ -21,7 +21,7 @@ public class CircuitBreakerController {
 
     @Operation(summary = "요청")
     @GetMapping(value = "/call")
-    public ResultDto callApi(@RequestParam(defaultValue = "false") boolean isError) {
+    ResultDto callApi(@RequestParam(defaultValue = "false") boolean isError) {
         return circuitBreakerService.callApi(isError);
     }
 }
