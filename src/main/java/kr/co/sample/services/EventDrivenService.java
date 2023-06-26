@@ -35,18 +35,18 @@ public class EventDrivenService {
         eventPublisher.publishEvent(new EventTransaction("Event Transaction Class"));
     }
 
-    @EventListener(Event.class)
+    @EventListener
     public void subscribeEvent(Event event) {
         log.info("subscribeEvent : {}", event.data());
     }
 
     @Async
-    @EventListener(EventAsync.class)
+    @EventListener
     public void subscribeEventAsync(EventAsync event) {
         log.info("subscribeEventAsync : {}", event.data());
     }
 
-    @TransactionalEventListener(EventTransaction.class)
+    @TransactionalEventListener
     public void subscribeEventTransaction(EventTransaction event) {
         log.info("subscribeEventTransaction : {}", event.data());
     }
