@@ -1,8 +1,11 @@
 package kr.co.sample.configs;
 
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -14,7 +17,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class CachingConfig {
 
     @Bean
-    public CacheManager testCacheManager(RedisConnectionFactory redisConnectionFactory) {
+    @Primary
+    public CacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory) {
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
@@ -22,6 +26,13 @@ public class CachingConfig {
         return RedisCacheManager.builder(redisConnectionFactory)
                 .cacheDefaults(redisCacheConfiguration)
                 .build();
+    }
+
+    @Bean
+    public CacheManager guavaCacheManager() {
+        CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
+        caffeineCacheManager.setCaffeine(Caffeine.newBuilder());
+        return caffeineCacheManager;
     }
 
 }
