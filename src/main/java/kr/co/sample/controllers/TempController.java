@@ -35,6 +35,12 @@ public class TempController {
         return tempService.getTemp(1L);
     }
 
+    @Operation(summary = "요청(JPA Quert)")
+    @GetMapping(value = "/query")
+    ResultGenericDto<TempDto> getTempForQuery() {
+        return tempService.getTempForQuery(1L);
+    }
+
     @Operation(summary = "에러 발생")
     @GetMapping(value = "/error")
     ResultDto throwException() throws Exception {

@@ -27,4 +27,10 @@ public class TempService {
                 .map(tempEntity -> TempDto.builder().id(tempEntity.getId()).build())
                 .orElseThrow());
     }
+
+    public ResultGenericDto<TempDto> getTempForQuery(Long id) {
+        return ResultGenericDto.ofSuccess(TempDto.builder()
+                .id(tempRepository.findByIdForQuery(id).getId())
+                .build());
+    }
 }
