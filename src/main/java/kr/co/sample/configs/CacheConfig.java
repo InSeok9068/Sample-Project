@@ -14,7 +14,7 @@ import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-public class CachingConfig {
+public class CacheConfig {
 
     @Bean
     @Primary

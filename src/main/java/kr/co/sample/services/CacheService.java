@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
-public class CachingService {
+public class CacheService {
     private static final Map<String, String> CACHE_DATA_MAP = new ConcurrentHashMap<>();
     private static final String CACHE_NAME = "cache";
 
@@ -42,7 +42,7 @@ public class CachingService {
         return ResultDto.ofSuccess();
     }
 
-    private void removeCaching() {
+    private void removeCache() {
         Cache cache = cacheManager.getCache(CACHE_NAME);
         if (Objects.nonNull(cache)) {
             cache.clear();
