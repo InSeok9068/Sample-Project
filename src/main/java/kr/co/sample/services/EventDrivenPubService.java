@@ -69,4 +69,24 @@ public class EventDrivenPubService {
         tempRepository.save(TempEntity.builder().build());
         eventPublisher.publishEvent(new EventDataDto.EventTransactionCase4("Event Transaction Case4 Class"));
     }
+
+    @Transactional
+    public void publishEventTransactionCase5() {
+        // 발행 주체에서 정상적인 트랜잭션이 완료되고 구독 주체에서도 정상적인 트랜잭션이 완료
+        // ※ @Async 비동기로 이벤트가 구독하여 트랜잭션이 분리되어 실행됨
+        log.info("publishEventTransactionCase5");
+        tempRepository.save(TempEntity.builder().build());
+        eventPublisher.publishEvent(new EventDataDto.EventTransactionCase5("Event Transaction Case5 Class"));
+    }
+
+    @Transactional
+    public void publishEventTransactionCase6() {
+        // 발행 주체에서는 정상적인 트랜잭션이 완료되고 구독 주체에서 에러가 발생
+        // ※ @Async 비동기로 이벤트가 구독하여 트랜잭션이 분리되어 실행됨
+        // ※ @Transactional(propagation = Propagation.REQUIRES_NEW) 비동기로 실행된 메서드도
+        //    자기만의 트랜잭션을 가짐으로써 구독 주체에서 에러가 발생하면 구독 주체에서 삽입한 데이터는 롤백
+        log.info("publishEventTransactionCase6");
+        tempRepository.save(TempEntity.builder().build());
+        eventPublisher.publishEvent(new EventDataDto.EventTransactionCase5("Event Transaction Case5 Class"));
+    }
 }

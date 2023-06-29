@@ -58,4 +58,19 @@ public class EventDrivenSubService {
         log.info("subscribeEventTransactionCase4 : {}", event);
         tempRepository.save(TempEntity.builder().build());
     }
+
+    @Async
+    @TransactionalEventListener
+    public void subscribeEventTransactionCase5(EventDataDto.EventTransactionCase5 event) {
+        log.info("subscribeEventTransactionCase5 : {}", event);
+        tempRepository.save(TempEntity.builder().build());
+    }
+
+    @Async
+    @TransactionalEventListener
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void subscribeEventTransactionCase6(EventDataDto.EventTransactionCase6 event) {
+        log.info("subscribeEventTransactionCase6 : {}", event);
+        tempRepository.save(TempEntity.builder().build());
+    }
 }

@@ -66,4 +66,18 @@ public class EventDrivenController {
         eventDrivenPubService.publishEventTransactionCase4();
         return ResultDto.ofSuccess();
     }
+
+    @Operation(summary = "이벤트 발행(트랜잭션-Case5)")
+    @PostMapping(value = "/transaction/case5")
+    ResultDto publishEventTransactionCase5() {
+        eventDrivenPubService.publishEventTransactionCase5();
+        return ResultDto.ofSuccess();
+    }
+
+    @Operation(summary = "이벤트 발행(트랜잭션-Case6)")
+    @PostMapping(value = "/transaction/case6")
+    ResultDto publishEventTransactionCase6() {
+        eventDrivenPubService.publishEventTransactionCase6();
+        return ResultDto.ofSuccess();
+    }
 }

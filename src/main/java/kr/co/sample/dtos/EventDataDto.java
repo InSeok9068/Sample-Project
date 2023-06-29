@@ -63,4 +63,20 @@ public class EventDataDto {
     public static class EventTransactionCase4 extends EventDto {
         private final String data;
     }
+
+    @Getter
+    @SuperBuilder
+    @RequiredArgsConstructor
+    @ToString(callSuper = true)
+    public static class EventTransactionCase5 extends EventDto {
+        private final String data;
+    }
+
+    @Getter
+    @SuperBuilder
+    @RequiredArgsConstructor
+    @ToString(callSuper = true)
+    public static class EventTransactionCase6 extends EventDto {
+        private final String data;
+    }
 }
