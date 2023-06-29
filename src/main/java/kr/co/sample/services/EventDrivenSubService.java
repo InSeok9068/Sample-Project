@@ -1,6 +1,7 @@
 package kr.co.sample.services;
 
 import kr.co.sample.dtos.EventDataDto;
+import kr.co.sample.dtos.common.EventDto;
 import kr.co.sample.entitys.TempEntity;
 import kr.co.sample.repositories.TempRepository;
 import lombok.RequiredArgsConstructor;
@@ -72,5 +73,10 @@ public class EventDrivenSubService {
     public void subscribeEventTransactionCase6(EventDataDto.EventTransactionCase6 event) {
         log.info("subscribeEventTransactionCase6 : {}", event);
         tempRepository.save(TempEntity.builder().build());
+    }
+
+    @EventListener
+    public void subscribeEventCommon(EventDto event) {
+        log.info("subscribeEventCommon : {}", event);
     }
 }

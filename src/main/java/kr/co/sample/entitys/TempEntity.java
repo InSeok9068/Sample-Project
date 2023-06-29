@@ -8,8 +8,8 @@ import lombok.*;
 @Entity
 @Builder
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "temp")
 public class TempEntity extends BaseTimeEntity {
     @Id
