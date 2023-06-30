@@ -1,4 +1,4 @@
-package kr.co.sample.playground;
+package playground;
 
 import kr.co.sample.enums.TempFunctionEnum;
 
