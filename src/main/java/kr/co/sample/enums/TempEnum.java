@@ -1,7 +1,7 @@
 package kr.co.sample.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 @Getter
 @ToString
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum TempEnum {
     TEMP_1("TEMP_1", "TEMP_1");
 

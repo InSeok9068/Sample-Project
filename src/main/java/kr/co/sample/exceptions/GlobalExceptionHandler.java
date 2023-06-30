@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    private ResultDto globalExceptionHanlder(Exception e) {
-        log.error("Global Exception : {}", ExceptionUtils.getStackTrace(e));
+    private ResultDto exceptionHandler(Exception e) {
+        log.error("Exception : {}", ExceptionUtils.getStackTrace(e));
         return ResultDto.builder()
                 .code(ResultConstant.ERROR_DEFAULT_CODE)
                 .message(ResultConstant.ERROR_DEFAULT_MESSAGE)
@@ -23,14 +23,32 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    private ResultDto globalExceptionHanlder(MethodArgumentNotValidException e) {
-        log.error("Global Exception : {}", ExceptionUtils.getStackTrace(e));
+    private ResultDto methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
+        log.error("MethodArgumentNotValidException Exception : {}", ExceptionUtils.getStackTrace(e));
         BindingResult bindingResult = e.getBindingResult();
         StringBuilder sb = new StringBuilder();
         bindingResult.getAllErrors().forEach(error -> sb.append(error.getDefaultMessage()).append(" "));
         return ResultDto.builder()
                 .code(ResultConstant.ERROR_DEFAULT_CODE)
                 .message(sb.toString())
+                .build();
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    private ResultDto illegalArgumentExceptionHandler(IllegalArgumentException e) {
+        log.error("IllegalArgumentException : {}", ExceptionUtils.getStackTrace(e));
+        return ResultDto.builder()
+                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ExceptionHandler(IllegalStateException.class)
+    private ResultDto illegalStateExceptionHandler(IllegalStateException e) {
+        log.error("IllegalStateException : {}", ExceptionUtils.getStackTrace(e));
+        return ResultDto.builder()
+                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .message(e.getMessage())
                 .build();
     }
 }
