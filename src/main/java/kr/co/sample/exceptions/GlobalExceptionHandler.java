@@ -1,7 +1,7 @@
 package kr.co.sample.exceptions;
 
-import kr.co.sample.constants.ResultConstant;
 import kr.co.sample.dtos.common.ResultDto;
+import kr.co.sample.enums.ResultEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.validation.BindingResult;
@@ -17,8 +17,8 @@ public class GlobalExceptionHandler {
     private ResultDto exceptionHandler(Exception e) {
         log.error("Exception : {}", ExceptionUtils.getStackTrace(e));
         return ResultDto.builder()
-                .code(ResultConstant.ERROR_DEFAULT_CODE)
-                .message(ResultConstant.ERROR_DEFAULT_MESSAGE)
+                .code(ResultEnum.ERROR.getCode())
+                .message(ResultEnum.ERROR.getMessage())
                 .build();
     }
 
@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
         StringBuilder sb = new StringBuilder();
         bindingResult.getAllErrors().forEach(error -> sb.append(error.getDefaultMessage()).append(" "));
         return ResultDto.builder()
-                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .code(ResultEnum.ERROR.getCode())
                 .message(sb.toString())
                 .build();
     }
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
     private ResultDto illegalArgumentExceptionHandler(IllegalArgumentException e) {
         log.error("IllegalArgumentException : {}", ExceptionUtils.getStackTrace(e));
         return ResultDto.builder()
-                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .code(ResultEnum.ERROR.getCode())
                 .message(e.getMessage())
                 .build();
     }
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
     private ResultDto illegalStateExceptionHandler(IllegalStateException e) {
         log.error("IllegalStateException : {}", ExceptionUtils.getStackTrace(e));
         return ResultDto.builder()
-                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .code(ResultEnum.ERROR.getCode())
                 .message(e.getMessage())
                 .build();
     }

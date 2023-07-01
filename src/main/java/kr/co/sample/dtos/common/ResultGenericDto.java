@@ -1,6 +1,6 @@
 package kr.co.sample.dtos.common;
 
-import kr.co.sample.constants.ResultConstant;
+import kr.co.sample.enums.ResultEnum;
 import lombok.*;
 
 @Getter
@@ -18,29 +18,29 @@ public class ResultGenericDto<T> {
 
     public static <T> ResultGenericDto<T> ofSuccess() {
         return ResultGenericDto.<T>builder()
-                .code(ResultConstant.SUCCESS_CODE)
-                .message(ResultConstant.SUCCESS_MESSAGE)
+                .code(ResultEnum.SUCCESS.getCode())
+                .message(ResultEnum.SUCCESS.getMessage())
                 .build();
     }
 
     public static <T> ResultGenericDto<T> ofSuccess(T data) {
         return ResultGenericDto.<T>builder()
-                .code(ResultConstant.SUCCESS_CODE)
-                .message(ResultConstant.SUCCESS_MESSAGE)
+                .code(ResultEnum.SUCCESS.getCode())
+                .message(ResultEnum.SUCCESS.getMessage())
                 .data(data)
                 .build();
     }
 
     public static <T> ResultGenericDto<T> ofError() {
         return ResultGenericDto.<T>builder()
-                .code(ResultConstant.ERROR_DEFAULT_CODE)
-                .message(ResultConstant.ERROR_DEFAULT_MESSAGE)
+                .code(ResultEnum.ERROR.getCode())
+                .message(ResultEnum.ERROR.getMessage())
                 .build();
     }
 
     public static <T> ResultGenericDto<T> ofError(String message) {
         return ResultGenericDto.<T>builder()
-                .code(ResultConstant.ERROR_DEFAULT_CODE)
+                .code(ResultEnum.ERROR.getCode())
                 .message(message)
                 .build();
     }
@@ -53,10 +53,10 @@ public class ResultGenericDto<T> {
     }
 
     public boolean checkSuccess() {
-        return ResultConstant.SUCCESS_CODE.equals(code);
+        return ResultEnum.SUCCESS.getCode().equals(code);
     }
 
     public boolean checkError() {
-        return !ResultConstant.SUCCESS_CODE.equals(code);
+        return !ResultEnum.SUCCESS.getCode().equals(code);
     }
 }

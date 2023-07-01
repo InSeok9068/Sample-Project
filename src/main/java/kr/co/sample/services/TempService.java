@@ -2,6 +2,7 @@ package kr.co.sample.services;
 
 import kr.co.sample.dtos.TempDto;
 import kr.co.sample.dtos.common.ResultGenericDto;
+import kr.co.sample.mapper.TempMapper;
 import kr.co.sample.repositories.TempRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,13 +19,13 @@ public class TempService {
     public ResultGenericDto<List<TempDto>> getTempList() {
         return ResultGenericDto.ofSuccess(tempRepository.findAll()
                 .stream()
-                .map(tempEntity -> TempDto.builder().id(tempEntity.getId()).build())
+                .map(TempMapper.INSTANCE::toTempDto)
                 .collect(Collectors.toList()));
     }
 
     public ResultGenericDto<TempDto> getTemp(Long id) {
         return ResultGenericDto.ofSuccess(tempRepository.findById(id)
-                .map(tempEntity -> TempDto.builder().id(tempEntity.getId()).build())
+                .map(TempMapper.INSTANCE::toTempDto)
                 .orElseThrow());
     }
 
