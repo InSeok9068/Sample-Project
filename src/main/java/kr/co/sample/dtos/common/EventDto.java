@@ -1,5 +1,6 @@
 package kr.co.sample.dtos.common;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -9,10 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @SuperBuilder
-public class EventDto {
-    private final LocalDateTime timestamp;
-
-    public EventDto() {
-        this.timestamp = LocalDateTime.now();
-    }
+public abstract class EventDto {
+    @Builder.Default
+    private final LocalDateTime timestamp = LocalDateTime.now();
 }

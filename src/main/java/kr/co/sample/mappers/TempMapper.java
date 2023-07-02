@@ -1,4 +1,4 @@
-package kr.co.sample.mapper;
+package kr.co.sample.mappers;
 
 import kr.co.sample.dtos.TempDto;
 import kr.co.sample.entitys.TempEntity;

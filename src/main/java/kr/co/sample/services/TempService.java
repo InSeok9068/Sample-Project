@@ -2,7 +2,7 @@ package kr.co.sample.services;
 
 import kr.co.sample.dtos.TempDto;
 import kr.co.sample.dtos.common.ResultGenericDto;
-import kr.co.sample.mapper.TempMapper;
+import kr.co.sample.mappers.TempMapper;
 import kr.co.sample.repositories.TempRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
