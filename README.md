@@ -3,8 +3,8 @@
 - Language : Java 17
 - BackEnd Framework : Spring Boot
 - Database Framework : JPA
-- Caching : Redis | Caffeine
-- Message Queue : Redis Queue | Spring Event
+- Caching : Redis(분산) | Caffeine(임베디드)
+- Message Queue : Redis Queue(분산) | Spring Event(임베디드)
 - Lock : Redis | JDBC(H2)
 - Circuit Breaker : Resilience4j
 - API Doc : Open API (http://localhost:8080/swagger-ui.html)

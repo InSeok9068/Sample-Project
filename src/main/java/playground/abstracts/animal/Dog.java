@@ -1,4 +1,4 @@
-package playground.abstracts;
+package playground.abstracts.animal;
 
 import lombok.experimental.SuperBuilder;
 
