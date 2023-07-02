@@ -1,6 +1,7 @@
 package kr.co.sample.services;
 
 import kr.co.sample.dtos.TempDto;
+import kr.co.sample.dtos.common.ResultDto;
 import kr.co.sample.dtos.common.ResultGenericDto;
 import kr.co.sample.mappers.TempMapper;
 import kr.co.sample.repositories.TempRepository;
@@ -33,5 +34,10 @@ public class TempService {
         return ResultGenericDto.ofSuccess(TempDto.builder()
                 .id(tempRepository.findByIdForQuery(id).getId())
                 .build());
+    }
+
+    public ResultDto createTemp(TempDto tempDto) {
+        tempRepository.save(TempMapper.INSTANCE.toTempEntity(tempDto));
+        return ResultDto.ofSuccess();
     }
 }

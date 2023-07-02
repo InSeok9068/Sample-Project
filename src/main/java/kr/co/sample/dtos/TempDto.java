@@ -1,5 +1,6 @@
 package kr.co.sample.dtos;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
@@ -8,5 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TempDto {
+
+    @NotNull
     private Long id;
 }

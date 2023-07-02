@@ -1,5 +1,6 @@
 package kr.co.sample.exceptions;
 
+import jakarta.validation.ConstraintViolationException;
 import kr.co.sample.dtos.common.ResultDto;
 import kr.co.sample.enums.ResultEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,17 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = e.getBindingResult();
         StringBuilder sb = new StringBuilder();
         bindingResult.getAllErrors().forEach(error -> sb.append(error.getDefaultMessage()).append(" "));
+        return ResultDto.builder()
+                .code(ResultEnum.ERROR.getCode())
+                .message(sb.toString())
+                .build();
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    private ResultDto constraintViolationExceptionHandler(ConstraintViolationException e) {
+        log.error("MethodArgumentNotValidException Exception : {}", ExceptionUtils.getStackTrace(e));
+        StringBuilder sb = new StringBuilder();
+        e.getConstraintViolations().forEach(constraintViolation -> sb.append(constraintViolation.getMessage()).append(" "));
         return ResultDto.builder()
                 .code(ResultEnum.ERROR.getCode())
                 .message(sb.toString())

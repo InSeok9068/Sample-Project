@@ -18,12 +18,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface PatternValid {
 
+    String DEFAULT_MESSAGE = "유효성 검증에 실패하였습니다.";
     String NUMBER_MESSAGE = "숫자만 입력가능합니다.";
 
     @Getter
     @AllArgsConstructor
     enum PATTERN_TYPE {
 
+        DEFAULT("", "Default", ""),
         NUMBER("^[0-9]*$", "숫자만 허용", NUMBER_MESSAGE);
 
         private final String pattern;
@@ -31,9 +33,9 @@ public @interface PatternValid {
         private final String message;
     }
 
-    PATTERN_TYPE patternType() default PATTERN_TYPE.NUMBER;
+    PATTERN_TYPE patternType() default PATTERN_TYPE.DEFAULT;
 
-    String message() default NUMBER_MESSAGE;
+    String message() default DEFAULT_MESSAGE;
 
     Class<?>[] groups() default {};
 
