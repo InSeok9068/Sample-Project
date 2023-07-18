@@ -7,6 +7,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.lang.NonNull;
 
 import java.util.Objects;
 
@@ -19,7 +20,7 @@ public class JacksonUtil {
 
     }
 
-    public static String writeValueAsStringThrowIfFailed(Object obj) {
+    public static String writeValueAsStringThrowIfFailed(@NonNull Object obj) {
         try {
             return objectMapper.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
@@ -27,7 +28,7 @@ public class JacksonUtil {
         }
     }
 
-    public static String writeValueAsStringNullIfFailed(Object obj) {
+    public static String writeValueAsStringNullIfFailed(@NonNull Object obj) {
         try {
             return objectMapper.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
@@ -36,7 +37,7 @@ public class JacksonUtil {
         }
     }
 
-    public static <T> T deserializeJsonNulIfFailed(String content, TypeReference<T> typeReference) {
+    public static <T> T deserializeJsonNulIfFailed(@NonNull String content, TypeReference<T> typeReference) {
         try {
             return objectMapper.readValue(content, typeReference);
         } catch (JsonProcessingException e) {
@@ -45,7 +46,7 @@ public class JacksonUtil {
         }
     }
 
-    public static <T> T deserializeJsonNulIfFailed(String content, Class<T> clazz) {
+    public static <T> T deserializeJsonNulIfFailed(@NonNull String content, Class<T> clazz) {
         try {
             return objectMapper.readValue(content, clazz);
         } catch (JsonProcessingException e) {
@@ -54,7 +55,7 @@ public class JacksonUtil {
         }
     }
 
-    public static <T> T convertJsonObjectTypeNullIfFailed(Object obj, TypeReference<T> typeReference) {
+    public static <T> T convertJsonObjectTypeNullIfFailed(@NonNull Object obj, TypeReference<T> typeReference) {
         String json = writeValueAsStringNullIfFailed(obj);
         if (Objects.isNull(json)) {
             return null;
