@@ -72,3 +72,6 @@ resilience4j:
     instances:
       testCircuitBreaker:
         base-config: default
+
+dumy:
+  api-host: https://reqres.in
