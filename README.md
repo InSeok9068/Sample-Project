@@ -18,5 +18,5 @@
 
 ### @Nullable, @NonNull (org.springframework.lang)
 
-- 해당 어노테이션을 사용하여 Null 허용 및 불가를 표기
-
+- 해당 어노테이션을 사용하여 필드, 메서드 파라미터, 메서드 응닶값 Null 허용 및 불가를 표기
+  - ※ @DefaultQualifier(value = NonNull.class, locations = TypeUseLocation.FIELD) 를 사용하여 클래스에 일괄 적용 가능
