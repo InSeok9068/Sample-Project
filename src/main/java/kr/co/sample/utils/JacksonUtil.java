@@ -62,4 +62,13 @@ public class JacksonUtil {
         }
         return deserializeJsonNulIfFailed(json, typeReference);
     }
+
+    public static <T> T deepCopyNullIfFailed(@NonNull Object obj, TypeReference<T> typeReference) {
+        try {
+            return objectMapper.readValue(objectMapper.writeValueAsString(obj), typeReference);
+        } catch (JsonProcessingException e) {
+            logger.warn("Deep Copy 실패 : {}", ExceptionUtils.getStackTrace(e));
+            return null;
+        }
+    }
 }
