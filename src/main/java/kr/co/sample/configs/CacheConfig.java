@@ -25,6 +25,7 @@ public class CacheConfig {
 
         return RedisCacheManager.builder(redisConnectionFactory)
                 .cacheDefaults(redisCacheConfiguration)
+                .transactionAware() // 트랜잭션 허용
                 .build();
     }
 

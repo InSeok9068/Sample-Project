@@ -35,4 +35,10 @@ public class CacheController {
     ResultDto removeData(String key) {
         return cacheService.removeData(key);
     }
+
+    @Operation(summary = "캐싱 데이터 등록 실패 (DB + Redis) - 트랜잭션")
+    @PostMapping(value = "/add-fail")
+    ResultDto transactionDbAndRedis(Long id) {
+        return cacheService.transactionDbAndRedis(id);
+    }
 }
